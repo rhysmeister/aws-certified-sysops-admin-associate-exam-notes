@@ -2,6 +2,13 @@
 
 ## Domain 1: Monitoring, Logging, and Remediation
 ### 1.1 Implement metrics, alarms, and filters by using AWS monitoring and logging services
+
+To assist with the knowledge items in this section we will create 3 Amazon Linux 2 Instances in the default VPC with a new ssh key. Methods for doing this will be given with the Web Console, the AWS Command_line and Cloudformation.
+
+#### Web Console
+#### AWS Command-Line
+#### CloudFormation
+
 * Identify, collect, analyze, and export logs (for example, Amazon CloudWatch Logs, CloudWatch
 Logs Insights, AWS CloudTrail logs)
 * Collect metrics and logs using the CloudWatch agent
