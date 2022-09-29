@@ -27,6 +27,7 @@ chmod 600 .ssh/Test.pem
    * In the User data field add...
 
 ```bash
+#!/bin/bash
 yum install -y amazon-cloudwatch-agent
 yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
