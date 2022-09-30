@@ -5,6 +5,10 @@
 
 To assist with the knowledge items in this section we will create 3 Amazon Linux 2 Instances in the default VPC with a new ssh key. Methods for doing this will be given with the Web Console, the AWS Command_line and Cloudformation.
 
+* domain_1/1_ec2_web_console.md
+* domain_1/2_ec2_awc_cli.md
+* domain_1/3_ec2_cloudformation.md
+
 #### Web Console
 #### AWS Command-Line
 #### CloudFormation

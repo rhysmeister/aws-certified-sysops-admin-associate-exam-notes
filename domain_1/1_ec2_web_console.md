@@ -60,13 +60,14 @@ amazon-linux-extras install collectd
 
 # Create CloudWatch Agent config file with the Wizard
 
-* Logon to an EC2 instance (Session Manager should work)
+* Logon to an EC2 instance (Session Manager should work although you might need to wait a little while)
 * sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 * Follow the Wizard - defaults should be ok.
 * Configure at least one log file to monitor, i.e. /var/log/messages
 * Save the configuration to the Systems Manager Parameter Store (default name would be AmazonCloudWatch-linux)
 * Run the CloudWatch Agent `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c ssm:AmazonCloudWatch-linux`
 * Run the above command on the remaining instances to configure the CW Agent
+* After around5 minutes there should be data from these EC2 instances in CloudWatch
 
 # Remove CloudWatchAgentAdminPolicy from the EC2CloudWatchSSM Role
 
