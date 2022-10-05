@@ -71,6 +71,9 @@ aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key
 aws ec2 delete-key-pair --key-name EC2Test
 aws iam remove-role-from-instance-profile --instance-profile-name "EC2CloudWatchSSM" --role-name "EC2CloudWatchSSM"
 aws iam delete-instance-profile --instance-profile-name "EC2CloudWatchSSM"
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
 aws iam delete-role --role-name "EC2CloudWatchSSM"
 aws ec2 delete-instance --instance-name "TestEC2Instance"
 aws ec2 delete-security-group --group-id "$SG"
