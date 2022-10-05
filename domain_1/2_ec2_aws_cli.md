@@ -58,7 +58,7 @@ amazon-linux-extras install collectd
 EOF
 
 export AMI="ami-XXXXXXXXXXXXXXX";
-aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key-name EC2Test --security-group-ids "$SG" --iam-instance-profile Name="EC2CloudWatchSSM"  --user-data-file file://user-data.txt  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestEC2Instance}]'  -- --subnet-id (required??)
+aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key-name EC2Test --security-group-ids "$SG" --iam-instance-profile Name="EC2CloudWatchSSM"  --user-data file://user-data.txt  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestEC2Instance}]'  -- --subnet-id (required??)
 ```
 
 # Create CloudWatch Agent config file with the Wizard
