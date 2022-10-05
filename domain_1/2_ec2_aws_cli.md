@@ -8,7 +8,7 @@ export AWS_PROFILE=myprofile
 
 ```bash
 aws ec2 create-key-pair --key-name EC2Test --query 'KeyMaterial' --output text > EC2Test.pem
-cp EC2Test.pem .ssh/
+mv EC2Test.pem .ssh/
 chmod 600 .ssh/EC2Test.pem
 ```
 
