@@ -15,7 +15,7 @@ chmod 600 .ssh/EC2Test.pem
 # Create Security Group
 
 ```bash
-aws ec2 create-security-group --group-name sg-ssh --description "Allow incoming SSH"
+aws ec2 create-security-group --group-name ssh --description "Allow incoming SSH"
 # Record the returned group id
 export SG=XXXXXXX;
 MYIP=$(curl https://checkip.amazonaws.com)
