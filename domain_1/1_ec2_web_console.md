@@ -38,7 +38,7 @@ amazon-linux-extras install collectd
   * Click "Launch instance"
   * Click "View all instances" and wait for the status checks to stabilize.
 
-# Create a IAM Role for Cloudwatch and assign the instances
+# Create a IAM Role for Cloudwatch and assign it to the instances
 
 * In the EC2 Console select an instance
 * Actions > Security > Modify IAM role > Create new IAM role
