@@ -79,6 +79,7 @@ aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --filter
 aws ec2 revoke-security-group-ingress --group-id "$SG" --protocol tcp --port 22 --cidr "$MYIP/32"
 aws ec2 delete-security-group --group-id "$SG"
 aws logs delete-log-group --log-group-name messages
+aws ssm delete-parameter --name AmazonCloudWatch-linux
 ```
 
 and if required...
