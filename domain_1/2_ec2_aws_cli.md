@@ -7,7 +7,7 @@ export AWS_PROFILE=myprofile
 # Create a key pair
 
 ```bash
-aws ec2 create-key-pair --key-name EC2Test --query 'KeyMaterial' --output text > Test.pem
+aws ec2 create-key-pair --key-name EC2Test --query 'KeyMaterial' --output text > EC2Test.pem
 cp Test.pem .ssh/
 chmod 600 .ssh/Test.pem
 ```
@@ -72,4 +72,10 @@ aws ec2 delete-security-group --group-id "$SG"
 aws iam delete-instance-profile --instance-profile-name "EC2CloudWatchSSM"
 aws iam delete-role --role-name "EC2CloudWatchSSM"
 aws ec2 delete-instance --instance-name "TestEC2Instance"
+```
+
+and if required...
+
+```bash
+rm .ssh/EC2Test.pem
 ```
