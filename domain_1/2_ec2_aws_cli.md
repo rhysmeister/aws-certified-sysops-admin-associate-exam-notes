@@ -7,7 +7,7 @@ export AWS_PROFILE=myprofile
 # Create a key pair
 
 ```bash
-aws ec2 create-key-pair --key-name Test --query 'KeyMaterial' --output text > Test.pem
+aws ec2 create-key-pair --key-name EC2Test --query 'KeyMaterial' --output text > Test.pem
 cp Test.pem .ssh/
 chmod 600 .ssh/Test.pem
 ```
@@ -57,7 +57,7 @@ amazon-linux-extras install collectd
 EOF
 
 export AMI="ami-XXXXXXXXXXXXXXX";
-aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key-name Test --security-group-ids "$SG" --iam-instance-profile Name="EC2CloudWatchSSM"  --user-data-file file://user-data.txt  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestEC2Instance}]'  -- --subnet-id (required??)
+aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key-name EC2Test --security-group-ids "$SG" --iam-instance-profile Name="EC2CloudWatchSSM"  --user-data-file file://user-data.txt  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestEC2Instance}]'  -- --subnet-id (required??)
 ```
 
 # Create CloudWatch Agent config file with the Wizard
@@ -67,7 +67,7 @@ aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key
 # Clean Up
 
 ```bash
-aws ec2 delete-key-pair --key-name Test
+aws ec2 delete-key-pair --key-name EC2Test
 aws ec2 delete-security-group --group-id "$SG"
 aws iam delete-instance-profile --instance-profile-name "EC2CloudWatchSSM"
 aws iam delete-role --role-name "EC2CloudWatchSSM"
