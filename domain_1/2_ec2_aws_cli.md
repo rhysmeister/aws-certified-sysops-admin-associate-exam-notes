@@ -75,7 +75,7 @@ aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:i
 aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
 aws iam delete-role --role-name "EC2CloudWatchSSM"
-aws ec2 delete-instance --instance-name "TestEC2Instance"
+aws ec2 terminate-instances --instance-name "TestEC2Instance"
 aws ec2 delete-security-group --group-id "$SG"
 ```
 
