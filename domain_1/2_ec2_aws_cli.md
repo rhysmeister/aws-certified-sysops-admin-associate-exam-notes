@@ -78,6 +78,7 @@ aws iam delete-role --role-name "EC2CloudWatchSSM"
 aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --filters 'Name=tag:Name,Values=TestEC2Instance' --query 'Reservations[*].Instances[*].InstanceId' --output text)
 aws ec2 revoke-security-group-ingress --group-id "$SG" --protocol tcp --port 22 --cidr "$MYIP/32"
 aws ec2 delete-security-group --group-id "$SG"
+aws logs delete-log-group --log-group-name messages
 ```
 
 and if required...
