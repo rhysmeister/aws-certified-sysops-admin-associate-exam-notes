@@ -40,9 +40,10 @@ cat << EOF > EC2CloudWatchSSM.json
 }
 EOF
 aws iam create-role --role-name "EC2CloudWatchSSM" --assume-role-policy-document file://EC2CloudWatchSSM.json
-aws iam attach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy  # temp, can be rmeoved after setup
+aws iam attach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy  # temp, can be removed after setup
 aws iam attach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 aws iam attach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+aws iam create-instance-profile --instance-profile-name "EC2CloudWatchSSM"
 aws iam add-role-to-instance-profile --instance-profile-name "EC2CloudWatchSSM" --role-name "EC2CloudWatchSSM"
 ```
 
