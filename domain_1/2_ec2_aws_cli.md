@@ -69,10 +69,17 @@ aws ec2 run-instances --image-id "$AMI" --count 3 --instance-type t2.micro --key
 
 ```bash
 aws ec2 delete-key-pair --key-name EC2Test
-aws ec2 delete-security-group --group-id "$SG"
+aws iam remove-role-from-instance-profile --instance-profile-name "EC2CloudWatchSSM" --role-name "EC2CloudWatchSSM"
 aws iam delete-instance-profile --instance-profile-name "EC2CloudWatchSSM"
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+aws iam detach-role-policy --role-name "EC2CloudWatchSSM" --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
 aws iam delete-role --role-name "EC2CloudWatchSSM"
-aws ec2 delete-instance --instance-name "TestEC2Instance"
+aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --filters 'Name=tag:Name,Values=TestEC2Instance' --query 'Reservations[*].Instances[*].InstanceId' --output text)
+aws ec2 revoke-security-group-ingress --group-id "$SG" --protocol tcp --port 22 --cidr "$MYIP/32"
+aws ec2 delete-security-group --group-id "$SG"
+aws logs delete-log-group --log-group-name messages
+aws ssm delete-parameter --name AmazonCloudWatch-linux
 ```
 
 and if required...
