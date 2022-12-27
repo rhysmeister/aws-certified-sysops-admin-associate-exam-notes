@@ -41,6 +41,7 @@ Service Quotas, CloudWatch alarms, AWS Health events)
   * Read Replicas Maximums
     * MySQL, MariaDB and PostgreSQL - 15
     * Oracle & SQL Server - 5.
+  * [Aurora Replication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html)
 * Implement loosely coupled architectures
   * Loosely coupled architecture is an architectural style where the individual components of an application are built independently from one another (the opposite paradigm of tightly coupled architectures). Each component, sometimes referred to as a microservice, is built to perform a specific function in a way that can be used by any number of other services. This pattern is generally slower to implement than tightly coupled architecture but has a number of benefits, particularly as applications scale. [source](https://glossary.cncf.io/loosely-coupled-architecture/)
   * [Build a loosely coupled architecture with microservices using DevOps practices and AWS Cloud9](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/build-a-loosely-coupled-architecture-with-microservices-using-devops-practices-and-aws-cloud9.html)
@@ -62,7 +63,15 @@ Elastic IP addresses)
 ### 2.3 Implement backup and restore strategies
 * Automate snapshots and backups based on use cases (for example, RDS snapshots, AWS
 Backup, RTO and RPO, Amazon Data Lifecycle Manager, retention policy)
+  * [RDS Backup & Restore](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html)
+  * [AWS Backup](https://aws.amazon.com/backup/)
+  * [RTO & RPO](https://aws.amazon.com/blogs/mt/establishing-rpo-and-rto-targets-for-cloud-applications/)
+  * [EBS Snapshots](https://aws.amazon.com/ebs/snapshots/)
+  * [Amazon Data Lifecycle Manager](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
 * Restore databases (for example, point-in-time restore, promote read replica)
+  * [Restore a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html)
+  * [PITR](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html)
+  * [Promote a read replica](https://fitdevops.in/how-to-promote-read-replica-to-standalone-db-instance/)
 * Implement versioning and lifecycle rules
 * Configure Amazon S3 Cross-Region Replication
 * Execute disaster recovery procedures
