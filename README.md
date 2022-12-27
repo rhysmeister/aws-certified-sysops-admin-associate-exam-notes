@@ -3,22 +3,27 @@
 ## Domain 1: Monitoring, Logging, and Remediation
 ### 1.1 Implement metrics, alarms, and filters by using AWS monitoring and logging services
 
-To assist with the knowledge items in this section we will create 3 Amazon Linux 2 Instances in the default VPC with a new ssh key. Methods for doing this will be given with the Web Console, the AWS Command_line and Cloudformation.
+To assist with the knowledge items in this section we will create 3 Amazon Linux 2 Instances in the default VPC with a new ssh key. Methods for doing this will be given with the Web Console and the AWS Command-Line (CF dropped)
 
 * domain_1/1_ec2_web_console.md
 * domain_1/2_ec2_awc_cli.md
-* domain_1/3_ec2_cloudformation.md
-
-#### Web Console
-#### AWS Command-Line
-#### CloudFormation
 
 * Identify, collect, analyze, and export logs (for example, Amazon CloudWatch Logs, CloudWatch
 Logs Insights, AWS CloudTrail logs)
+  * Logs Groups should be visible in https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#logsV2:log-groups
 * Collect metrics and logs using the CloudWatch agent
 * Create CloudWatch alarms
+
 * Create metric filters
+  * [Web Console](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html)
 * Create CloudWatch dashboards
+  * Web Console
+    * Go to the CloudWatch Console
+    * Dashboards > Create Dashboard
+    * Enter Dashboard Name, i.e. RhysTest
+    * Add Widget, we'll keep it simple, pick "Bar".
+  * AWS CLI
+    * `aws cloudwatch put-dashboard --dashboard-name RhysTest --dashboard-body TODO`
 * Configure notifications (for example, Amazon Simple Notification Service [Amazon SNS],
 Service Quotas, CloudWatch alarms, AWS Health events)
 ### 1.2 Remediate issues based on monitoring and availability metrics
@@ -28,12 +33,27 @@ Service Quotas, CloudWatch alarms, AWS Health events)
 ## Domain 2: Reliability and Business Continuity
 ### 2.1 Implement scalability and elasticity
 * Create and maintain AWS Auto Scaling plans
+  * [AWS Auto Scaling](https://aws.amazon.com/autoscaling/)
 * Implement caching
+  * [AWS Elasticache](https://aws.amazon.com/elasticache/)
 * Implement Amazon RDS replicas and Amazon Aurora Replicas
+  * [Amazon RDS Read Replicas](https://aws.amazon.com/rds/features/read-replicas/)
+  * Read Replicas Maximums
+    * MySQL, MariaDB and PostgreSQL - 15
+    * Oracle & SQL Server - 5.
 * Implement loosely coupled architectures
+  * Loosely coupled architecture is an architectural style where the individual components of an application are built independently from one another (the opposite paradigm of tightly coupled architectures). Each component, sometimes referred to as a microservice, is built to perform a specific function in a way that can be used by any number of other services. This pattern is generally slower to implement than tightly coupled architecture but has a number of benefits, particularly as applications scale. [source](https://glossary.cncf.io/loosely-coupled-architecture/)
+  * [Build a loosely coupled architecture with microservices using DevOps practices and AWS Cloud9](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/build-a-loosely-coupled-architecture-with-microservices-using-devops-practices-and-aws-cloud9.html)
+  * [Loosely Coupled Scenarios](https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/loosely-coupled-scenarios.html)
 * Differentiate between horizontal scaling and vertical scaling
+  * [Difference between horizontally scaling and vertically scaling](https://medium.com/@khushalbisht/aws-scaling-horizontally-vs-vertically-3e30e3e71118)
+  * [RDS Instance Horizontal and Vertical Scaling](https://aws.amazon.com/blogs/database/scaling-your-amazon-rds-instance-vertically-and-horizontally/)
 ### 2.2 Implement high availability and resilient environments
 * Configure Elastic Load Balancer and Amazon Route 53 health checks
+  * [Elastic Load Balancer Checks](https://aws.amazon.com/blogs/aws/elastic-load-balancer-health-checks/)
+  * [Add Elastic Load Balancing health checks to an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-add-elb-healthcheck.html)
+  * [How Amazon Route 53 checks the health of your resources](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html)
+  * [Types of Amazon Route 53 health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html)
 * Differentiate between the use of a single Availability Zone and Multi-AZ deployments (for
 example, Amazon EC2 Auto Scaling groups, Elastic Load Balancing, Amazon FSx, Amazon RDS)
 * Implement fault-tolerant workloads (for example, Amazon Elastic File System [Amazon EFS],

@@ -62,7 +62,7 @@ amazon-linux-extras install collectd
 
 * Logon to an EC2 instance (Session Manager should work although you might need to wait a little while)
 * sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
-* Follow the Wizard - defaults should be ok.
+* Follow the Wizard - most of the defaults should be ok.
 * Configure at least one log file to monitor, i.e. /var/log/messages
 * Save the configuration to the Systems Manager Parameter Store (default name would be AmazonCloudWatch-linux)
 * Run the CloudWatch Agent `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c ssm:AmazonCloudWatch-linux`
@@ -77,6 +77,10 @@ amazon-linux-extras install collectd
 * Check the "CloudWatchAgentAdminPolicy" policy > Remove
 
 # Clean Up
+
+The 3 instances can be shutdown to reduce costs if you want to use them again later.
+
+To cleanup...
 
 * EC2 > Terminate 3 Instances
 * IAM > Search for "EC2CloudWatchSSM" > Check Box > Delete > Type the role name in the box to confirm > Delete
